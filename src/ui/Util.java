@@ -4,8 +4,12 @@ import java.awt.*;
 
 public class Util {
 
+	// screen width an height
 	public static int width, height;
 
+	/**
+	 * Search screen width an height
+	 */
 	public static void init() {
 		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 

@@ -1,7 +1,5 @@
 package io;
 
-import ui.Util;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,6 +18,8 @@ public class Images {
 		// libs/images/ is the location of images
 		URL url = Images.class.getResource("/libs/images/" + s);
 		try {
+
+			// read file
 			return ImageIO.read(url);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -27,9 +27,22 @@ public class Images {
 		return null;
 	}
 
+	/**
+	 * Get image of the desired size
+	 * @param s the file name
+	 * @param width the desired width
+	 * @param height the desired height
+	 * @return the result image
+	 */
 	public static BufferedImage getImage(String s, int width, int height) {
+
+		// create image
 		BufferedImage res = new BufferedImage(width,height, BufferedImage.TYPE_INT_ARGB);
+
+		// get image from fike
 		BufferedImage temp = Images.loadImage(s);
+
+		// draw image
 		Graphics2D g = res.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
