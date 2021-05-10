@@ -14,3 +14,4 @@ Les autres classes sont des objets comme pour les element à ramasser (Collectib
 Ou encore la classe des personnages, Character qui a deux classes filles auc rôles très différents: Marshal et Bandit.
 La classe Board contient donc les objects du programme.
 
+git: https://github.com/FirePower-Git/ColtExpress.git
