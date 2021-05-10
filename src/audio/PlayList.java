@@ -30,6 +30,7 @@ public class PlayList {
 	 * Stop all musics
 	 */
 	public static void stop() {
+		if (musics.size() == 0)return;
 		for (Music m : musics) {
 			m.stop();
 			musics.remove(m);

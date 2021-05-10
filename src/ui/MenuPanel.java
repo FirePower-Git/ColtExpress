@@ -40,7 +40,7 @@ public class MenuPanel extends JPanel {
 		background = Images.getImage("main_image.jpg", Util.width, Util.height);
 
 		// add music
-		PlayList.run("music_1.wav", Music.SoundType.MUSIC);
+		PlayList.run("music_3.wav", Music.SoundType.MUSIC);
 
 		// initialize timer
 		timer.schedule(new TimerTask() {
@@ -64,9 +64,6 @@ public class MenuPanel extends JPanel {
 					// change to game panel
 					layeredPanel.add(new GamePanel(layeredPanel), 1);
 					layeredPanel.remove(0);
-
-					// stop menu music
-					PlayList.stop();
 
 					// set new game
 					Thread t = new Thread(new Runnable() {

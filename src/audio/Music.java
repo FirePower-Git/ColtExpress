@@ -74,7 +74,7 @@ public class Music {
 				// Create Audio stream with input stream
 				try {
 					audioInputStream = AudioSystem.getAudioInputStream(inputStream);
-				} catch (UnsupportedAudioFileException | IOException e) {
+				} catch (UnsupportedAudioFileException | IOException | NullPointerException e) {
 					e.printStackTrace();
 					return;
 				}
@@ -130,9 +130,6 @@ public class Music {
 
 				// Remove Music object from array to prevent to much memory used
 				PlayList.musics.remove(this);
-
-				// play another one
-				PlayList.run("music_" + ((int) (Math.random() * 4.0D)) + ".wav", Music.SoundType.MUSIC);
 			}
 		});
 

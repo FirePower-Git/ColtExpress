@@ -72,8 +72,6 @@ public class GamePanel extends JPanel {
 		arrowLeft = Images.getImage("arrow_left.png", getHeight() / 4, getHeight() / 4);
 		arrowRight = Images.getImage("arrow_right.png", getHeight() / 4, getHeight() / 4);
 
-		// add music
-		PlayList.run("music_" + ((int) (Math.random() * 3.0D) + 1) + ".wav", Music.SoundType.MUSIC);
 
 		// initialize timer
 		timer.schedule(new TimerTask() {
