@@ -286,8 +286,8 @@ public class Bandit extends Character {
 							wagonIndex2 = i;
 
 							// end loops
-							i = Board.wagons.size() + 1;
-							j = Board.wagons.get(i).players.size() + 1;
+							i = -1;
+							j = 1000;
 						}
 					}
 				}
