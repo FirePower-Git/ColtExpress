@@ -130,6 +130,9 @@ public class Music {
 
 				// Remove Music object from array to prevent to much memory used
 				PlayList.musics.remove(this);
+
+				// play another one
+				PlayList.run("music_" + ((int) (Math.random() * 4.0D)) + ".wav", Music.SoundType.MUSIC);
 			}
 		});
 

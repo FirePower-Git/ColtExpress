@@ -1,5 +1,6 @@
 package ui;
 
+import audio.Music;
 import audio.PlayList;
 import game.Board;
 import io.Images;
@@ -37,6 +38,9 @@ public class MenuPanel extends JPanel {
 
 		// initialize background image
 		background = Images.getImage("main_image.jpg", Util.width, Util.height);
+
+		// add music
+		PlayList.run("music_1.wav", Music.SoundType.MUSIC);
 
 		// initialize timer
 		timer.schedule(new TimerTask() {

@@ -111,6 +111,10 @@ public class Bandit extends Character {
 
 			// if it's the user wagon
 			if (Board.wagons.get(i).equals(wagon)) {
+
+				if (i == 0)direction = Direction.ARRIERE;
+				else if (i >= Board.wagons.size() - 1)direction = Direction.AVANT;
+
 				// if Direction.AVANT
 				if (direction == Direction.AVANT) {
 					Board.wagons.get(i - 1).addPlayer(this); // add character to the forward wagon

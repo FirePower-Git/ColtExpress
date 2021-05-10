@@ -60,49 +60,47 @@ public class Marshal extends Character {
 	 */
 	public void move(Direction direction) {
 
+		int wagonIndex = -1;
+
 		// search wagon
 		for (int i = 0; i < Board.wagons.size(); i++) {
 
 			// if it's the user wagon
 			if (Board.wagons.get(i).equals(wagon)) {
+				wagonIndex = i;
 
 				// if Direction.AVANT
 				if (direction.equals(Direction.AVANT)) {
 
 					// if it's the locomotive
-					if (i == 0) {
-
-						// move back
-						move(Direction.ARRIERE);
-						return;
-					}
-
-					// add player to new wagon
-					Board.wagons.get(i - 1).addPlayer(this);
-
-					// change user wagon
-					this.wagon = Board.wagons.get(i - 1);
-				} else {
-
-					// if it's the last wagon
-					if (i == Board.wagons.size() - 1) {
-
-						// move forward
-						move(Direction.AVANT);
-						return;
-					}
-
-					// add player to new wagon
-					Board.wagons.get(i + 1).addPlayer(this);
-
-					// change user wagon
-					this.wagon = Board.wagons.get(i + 1);
+					if (i == 0) direction = Direction.ARRIERE;
 				}
 
-				// Remove player from current wagon
-				Board.wagons.get(i).removePlayer(this);
+				// if it's the last wagon
+				else if (i >= Board.wagons.size() - 1)
+					direction = Direction.AVANT;
 			}
 		}
+
+		// if Direction.AVANT
+		if (direction.equals(Direction.AVANT)) {
+
+			// add player to new wagon
+			Board.wagons.get(wagonIndex - 1).addPlayer(this);
+
+			// change user wagon
+			this.wagon = Board.wagons.get(wagonIndex - 1);
+		} else {
+
+			// add player to new wagon
+			Board.wagons.get(wagonIndex + 1).addPlayer(this);
+
+			// change user wagon
+			this.wagon = Board.wagons.get(wagonIndex + 1);
+		}
+
+		// Remove player from current wagon
+		Board.wagons.get(wagonIndex).removePlayer(this);
 
 		// Show it on the graphic console
 		Board.gamePanel.addLog("Le marchall est allé dans le wagon " + direction.name() + ".");

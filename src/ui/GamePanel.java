@@ -32,7 +32,7 @@ public class GamePanel extends JPanel {
 	private BufferedImage arrowLeft, arrowRight;
 
 	// timer to display frames
-	public Timer timer = new Timer();
+	private Timer timer = new Timer();
 
 	// logs to display
 	private ArrayList<String> logs = new ArrayList<String>();
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel {
 	private boolean onAction = false;
 
 	// number of actions
-	private final int NB_ACTIONS = 4;
+	public final int NB_ACTIONS = 4;
 
 	/**
 	 * Constructor of the GamePanel object
@@ -71,6 +71,9 @@ public class GamePanel extends JPanel {
 
 		arrowLeft = Images.getImage("arrow_left.png", getHeight() / 4, getHeight() / 4);
 		arrowRight = Images.getImage("arrow_right.png", getHeight() / 4, getHeight() / 4);
+
+		// add music
+		PlayList.run("music_" + ((int) (Math.random() * 3.0D) + 1) + ".wav", Music.SoundType.MUSIC);
 
 		// initialize timer
 		timer.schedule(new TimerTask() {

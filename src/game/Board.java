@@ -103,7 +103,9 @@ public class Board {
 	 * Players choose cards
 	 */
 	public static void chooseCards() {
-		//for (int i = 0; i < )
+		for (int i = 0; i < Board.NB_PLAYERS * gamePanel.NB_ACTIONS; i++)
+			cardPack.add(null);
+
 		for (int i = 0; i < Board.NB_PLAYERS; i++) {
 			gamePanel.chooseCard(i + 1);
 		}
@@ -115,7 +117,11 @@ public class Board {
 	 * @param playerIndex the player index
 	 */
 	public static void addCardToPack(Card.TYPE type, int playerIndex) {
-		cardPack.add(new Card(type, players.get(playerIndex)));
+		for (int i = 0; i < gamePanel.NB_ACTIONS; i++)
+			if (cardPack.get(i * NB_PLAYERS + playerIndex - 1) == null) {
+				cardPack.set(i * NB_PLAYERS + playerIndex - 1, new Card(type, players.get(playerIndex)));
+				break;
+			}
 	}
 
 	/**
